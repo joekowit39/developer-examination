@@ -1,27 +1,122 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
+            rel="stylesheet" type="text/css" />
+        <link
+            href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"
+            rel="stylesheet" type="text/css" />
+        <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="./css/index.css" rel="stylesheet" type="text/css" />
+    </head>
 
-<body>
-    <div class="content-page">
-        <div class="content" id="content">
-            <div class="container-fluid">
-                <br>
+    <body>
+        <div class="content-page">
+            <div class="content" id="content">
+                <div class="container">
+                    <br>
+                    <button type="button" class="btn btn-primary"
+                        onclick="addDataModal()">AddDataItem</button>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mytable">
+                                <tr>
+                                    <th scope="row" colspan="5">Loading...</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
 
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<script src="./index.js"></script>
+        <div class="modal fade" id="showModal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Show Data</h5>
+                    </div>
+                    <div class="modal-body">
+                        <span id="contentData">
+
+                        </span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            onclick="closef()">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addDataModal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Data</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control"
+                                    id="inputName"
+                                    placeholder="Enter Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label >Price</label>
+                                <input type="number" class="form-control"
+                                    id="inputPrice"
+                                    placeholder="Enter Price" required>
+                            </div>
+                            <div class="form-group">
+                                <label >Quantity</label>
+                                <input type="number" class="form-control"
+                                    id="inputQuantity"
+                                    placeholder="Enter Quantity" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control"
+                                    id="inputDescription"
+                                    placeholder="Enter Description" required>
+                            </div>
+                        </form>
+                        <br>
+                        <span id="errorForm">
+
+                        </span>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <span id="btnSaveAndUpdate"></span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script
+        src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./index.js"></script>
 
 </html>
